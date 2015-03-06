@@ -10,11 +10,6 @@ RUN apt-get install -y \
 # Make mysql to listen ips from outside of the container
 RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 
-# Create an user and a password to connect from outside of the container
-#RUN /usr/sbin/mysqld & \
-#    sleep 10s &&\
-#    echo "GRANT ALL ON *.* TO $USERNAME@'%' IDENTIFIED BY '$PASSWORD' WITH GRANT OPTION; FLUSH PRIVILEGES" | mysql
-
 ADD start.sh .
 RUN chmod +x start.sh
 
