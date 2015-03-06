@@ -15,9 +15,9 @@ RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysq
 #    sleep 10s &&\
 #    echo "GRANT ALL ON *.* TO $USERNAME@'%' IDENTIFIED BY '$PASSWORD' WITH GRANT OPTION; FLUSH PRIVILEGES" | mysql
 
-ADD run.sh .
-RUN chmod +x run.sh
+ADD start.sh .
+RUN chmod +x start.sh
 
 EXPOSE 3306
 
-CMD ./run.sh
+CMD ./start.sh
