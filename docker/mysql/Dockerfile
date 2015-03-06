@@ -10,9 +10,9 @@ RUN apt-get install -y \
 # Make mysql to listen ips from outside of the container
 RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 
-ADD start.sh .
+ADD start.sh /opt/start.sh
 RUN chmod +x start.sh
 
 EXPOSE 3306
 
-CMD ./start.sh
+CMD /opt/start.sh
